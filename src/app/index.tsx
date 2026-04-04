@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import { CardShowcase } from '@/widgets/card-showcase';
+import { Features } from '@/widgets/features';
 import { Header } from '@/widgets/header';
 
 import '@/app/styles/global.css';
@@ -13,7 +14,8 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Header />
         <main className="main">
-          <CardShowcase />
+          <CardShowcase marginTop={[132, 96, 96]} />
+          <Features marginTop={[112, 112, 96]} />
         </main>
       </BrowserRouter>
     </div>
