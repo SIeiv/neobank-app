@@ -1,0 +1,13 @@
+.header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-block: 8px;
+}
+
+.navbar {
+    display: flex;
+    gap: 40px;
+}

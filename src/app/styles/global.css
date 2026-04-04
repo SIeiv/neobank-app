@@ -1,0 +1,19 @@
+@import 'neobank-ui-kit/styles';
+
+body {
+    max-width: 1300px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1300px) {
+    body {
+        padding-inline: 8px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+}
+
+@media screen and (max-width: 500px) {
+}
