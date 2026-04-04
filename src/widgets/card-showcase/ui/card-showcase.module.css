@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 132px;
+}
+
+.heading {
+    max-width: 609px;
+}
+
+@media screen and (max-width: 920px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 56px;
+        margin-top: 96px;
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .right {
+        width: 100%;
+    }
+}

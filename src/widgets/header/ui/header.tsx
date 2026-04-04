@@ -1,28 +1,21 @@
-import { useEffect, useState, type JSX } from 'react';
+import { type JSX } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Link, MenuIcon } from 'neobank-ui-kit';
 
 import neobankLogo from '@/shared/assets/images/NeoBank.png';
-import { UIConfig } from '@/shared/config/ui.config';
-import { useWindowSize } from '@/shared/lib/hooks';
+import { useScreenMode } from '@/shared/lib/hooks';
 
 import styles from '@/widgets/header/ui/header.module.css';
 
-type ScreenMode = 'desktop' | 'tablet';
-
 export const Header = () => {
-  const { width } = useWindowSize();
-  const [mode, setMode] = useState<ScreenMode>(width > UIConfig.breakpoints.tablet ? 'desktop' : 'tablet');
-
-  useEffect(() => {
-    setMode(width > UIConfig.breakpoints.tablet ? 'desktop' : 'tablet');
-  }, [width]);
+  const mode = useScreenMode();
 
   const headerButtonSelector = (): JSX.Element => {
     switch (mode) {
       case 'desktop':
         return <Button>Online Bank</Button>;
       case 'tablet':
+      case 'mobile':
         return (
           <Button
             style={{
