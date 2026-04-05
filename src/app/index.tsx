@@ -8,6 +8,7 @@ import { Features } from '@/widgets/features';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { Map } from '@/widgets/map';
+import { Newsletter } from '@/widgets/newsletter';
 
 import '@/app/styles/global.css';
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
           <Features marginTop={[112, 112, 96]} />
           <Currency marginTop={[48, 48, 48]} />
           <Map marginTop={[48, 48, 48]} />
+          <Newsletter marginTop={[64, 64, 64]} />
         </main>
         <Footer />
       </BrowserRouter>
