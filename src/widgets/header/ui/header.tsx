@@ -40,18 +40,20 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <NavLink to={'/'}>
-        <img src={neobankLogo} alt="neobank logo" />
-      </NavLink>
-      {mode === 'desktop' && (
-        <nav className={styles.navbar}>
-          <Link to="/">Credit card</Link>
-          <Link to="/">Product</Link>
-          <Link to="/">Account</Link>
-          <Link to="/">Resources</Link>
-        </nav>
-      )}
-      {headerButtonSelector()}
+      <div className={styles.container}>
+        <NavLink to={'/'}>
+          <img src={neobankLogo} alt="neobank logo" />
+        </NavLink>
+        {mode === 'desktop' && (
+          <nav className={styles.navbar}>
+            <Link to="/">Credit card</Link>
+            <Link to="/">Product</Link>
+            <Link to="/">Account</Link>
+            <Link to="/">Resources</Link>
+          </nav>
+        )}
+        {headerButtonSelector()}
+      </div>
     </header>
   );
 };

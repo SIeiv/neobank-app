@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+}
+
+.image {
+    margin-top: 48px;
+}
+
+@media screen and (max-width: 1300px) {
+    .image {
+        max-width: 100%;
+    }
+}
