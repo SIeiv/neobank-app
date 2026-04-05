@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import { CardShowcase } from '@/widgets/card-showcase';
-import { Currency } from '@/widgets/currency/ui/currency';
+import { Currency } from '@/widgets/currency';
 import { Features } from '@/widgets/features';
+import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { Map } from '@/widgets/map';
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
           <Currency marginTop={[48, 48, 48]} />
           <Map marginTop={[48, 48, 48]} />
         </main>
+        <Footer />
       </BrowserRouter>
     </div>
   </StrictMode>
