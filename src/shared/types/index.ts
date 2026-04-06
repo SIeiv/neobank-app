@@ -8,3 +8,9 @@ export interface LinkType {
   text: string;
   to: string;
 }
+
+export interface INews {
+  img: string;
+  title: string;
+  text: string;
+}
