@@ -22,8 +22,8 @@ export const Footer = () => {
           </div>
         </div>
         <div className={styles.links}>
-          {footerConfig.links.map((item, index) => (
-            <Link key={`${item.text}${item.to}${index}`} style={{ fontWeight: 500 }} to={item.to}>
+          {footerConfig.links.map((item) => (
+            <Link key={`${item.text}_${item.to}`} style={{ fontWeight: 500 }} to={item.to}>
               {item.text}
             </Link>
           ))}

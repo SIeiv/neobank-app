@@ -1,35 +1,34 @@
-import { type JSX } from 'react';
+import { useState, type JSX } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Link, MenuIcon } from 'neobank-ui-kit';
+import { Button, Drawer, MenuIcon } from 'neobank-ui-kit';
 
+import exitIcon from '@/shared/assets/icons/exit.svg';
 import neobankLogo from '@/shared/assets/images/NeoBank.png';
 import { useScreenMode } from '@/shared/lib/hooks';
+import { headerConfig } from '@/widgets/header/config';
 
+import { HeaderButton } from '@/widgets/header/ui/header-button';
+import { HeaderNavbar } from '@/widgets/header/ui/header-navbar';
 import styles from '@/widgets/header/ui/header.module.css';
 
 export const Header = () => {
   const mode = useScreenMode();
 
+  const [mobileDrawerState, setMobileDrawerState] = useState(false);
+
   const headerButtonSelector = (): JSX.Element => {
     switch (mode) {
       case 'desktop':
-        return <Button>Online Bank</Button>;
+        return <Button>{headerConfig.buttonText}</Button>;
       case 'tablet':
       case 'mobile':
         return (
-          <Button
-            style={{
-              height: 50,
-              width: 50,
-              display: 'flex',
-              padding: 0,
-              justifyContent: 'center',
-              alignItems: 'center',
+          <HeaderButton
+            onClick={() => {
+              setMobileDrawerState(true);
             }}
-            border="rounded"
-          >
-            <MenuIcon />
-          </Button>
+            icon={<MenuIcon />}
+          />
         );
       default: {
         const _exhaustiveCheck: never = mode;
@@ -39,21 +38,27 @@ export const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <NavLink to={'/'}>
-          <img src={neobankLogo} alt="neobank logo" />
-        </NavLink>
-        {mode === 'desktop' && (
-          <nav className={styles.navbar}>
-            <Link to="/">Credit card</Link>
-            <Link to="/">Product</Link>
-            <Link to="/">Account</Link>
-            <Link to="/">Resources</Link>
-          </nav>
-        )}
-        {headerButtonSelector()}
-      </div>
-    </header>
+    <>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <NavLink to={'/'}>
+            <img src={neobankLogo} alt="neobank logo" />
+          </NavLink>
+          {mode === 'desktop' && <HeaderNavbar mode="desktop" />}
+          {headerButtonSelector()}
+        </div>
+      </header>
+      <Drawer activeState={mobileDrawerState} setter={setMobileDrawerState}>
+        <div className={styles.drawerHeader}>
+          <HeaderButton
+            onClick={() => {
+              setMobileDrawerState(false);
+            }}
+            icon={<img style={{ width: 24 }} src={exitIcon} alt="exit icon" />}
+          />
+        </div>
+        <HeaderNavbar mode="mobile" />
+      </Drawer>
+    </>
   );
 };
