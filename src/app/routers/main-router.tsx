@@ -6,7 +6,8 @@ import { MainPage } from '@/pages/main-page';
 export const MainRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      {/* для gh-pages */}
+      <Route path="/neobank-app/" element={<MainPage />} />
     </Routes>
   );
 };
