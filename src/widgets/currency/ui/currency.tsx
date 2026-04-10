@@ -2,8 +2,7 @@ import type { FC } from 'react';
 import { Card, Heading, Paragraph } from 'neobank-ui-kit';
 
 import bankImage from '@/shared/assets/images/Group.svg';
-import { useScreenMode } from '@/shared/lib/hooks';
-import { marginTopSelect } from '@/shared/lib/utilities';
+import { useMarginTopSelect } from '@/shared/lib/hooks';
 import type { ISection } from '@/shared/types';
 
 import { CurrencyItem } from '@/widgets/currency/ui/currency-item';
@@ -11,10 +10,10 @@ import { CurrencyOverlay } from '@/widgets/currency/ui/currency-overlay';
 import styles from '@/widgets/currency/ui/currency.module.scss';
 
 export const Currency: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
-  const mode = useScreenMode();
+  const selectedmt = useMarginTopSelect(marginTop);
 
   return (
-    <section className={styles.container} style={{ marginTop: marginTopSelect(mode, marginTop) }}>
+    <section className={styles.container} style={{ marginTop: selectedmt }}>
       <Card style={{ width: '100%', paddingBottom: 72, backgroundColor: '#F4F4F4E5' }}>
         <div className={styles.header}>
           <Heading style={{ margin: 0 }} level={3}>

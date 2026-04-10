@@ -1,8 +1,7 @@
 import type { FC } from 'react';
 import { Heading, Paragraph } from 'neobank-ui-kit';
 
-import { useScreenMode } from '@/shared/lib/hooks';
-import { marginTopSelect } from '@/shared/lib/utilities';
+import { useMarginTopSelect } from '@/shared/lib/hooks';
 import { newsMock } from '@/shared/mocks';
 import type { ISection } from '@/shared/types';
 
@@ -10,10 +9,10 @@ import { NewsSlider } from '@/widgets/news/ui/news-slider';
 import styles from '@/widgets/news/ui/news.module.scss';
 
 export const News: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
-  const mode = useScreenMode();
+  const selectedmt = useMarginTopSelect(marginTop);
 
   return (
-    <section className={styles.container} style={{ marginTop: marginTopSelect(mode, marginTop) }}>
+    <section className={styles.container} style={{ marginTop: selectedmt }}>
       <div className={styles.text}>
         <Heading level={3}>Current news from the world of finance</Heading>
         <Paragraph weight="semibold">
