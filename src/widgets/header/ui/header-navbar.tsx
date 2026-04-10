@@ -4,7 +4,7 @@ import { Button, Link } from 'neobank-ui-kit';
 import type { ScreenMode } from '@/shared/types';
 import { headerConfig } from '@/widgets/header/config';
 
-import styles from '@/widgets/header/ui/header.module.css';
+import styles from '@/widgets/header/ui/header.module.scss';
 
 interface IHeaderNavbar {
   mode: ScreenMode;

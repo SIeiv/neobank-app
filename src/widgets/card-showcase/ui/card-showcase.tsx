@@ -6,7 +6,7 @@ import { useScreenMode } from '@/shared/lib/hooks';
 import { marginTopSelect } from '@/shared/lib/utilities';
 import type { ISection } from '@/shared/types';
 
-import styles from '@/widgets/card-showcase/ui/card-showcase.module.css';
+import styles from '@/widgets/card-showcase/ui/card-showcase.module.scss';
 
 // TODO style to classname.
 export const CardShowcase: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {

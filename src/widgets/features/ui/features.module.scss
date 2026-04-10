@@ -1,0 +1,31 @@
+@use '@/app/styles/vars' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
+}
+
+.check {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.right {
+  min-width: 280px;
+}
+
+.left {
+  @media screen and (max-width: $tablet) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+  }
+}

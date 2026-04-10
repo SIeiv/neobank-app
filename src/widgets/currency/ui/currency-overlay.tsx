@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Paragraph } from 'neobank-ui-kit';
 
-import styles from '@/widgets/currency/ui/currency.module.css';
+import styles from '@/widgets/currency/ui/currency.module.scss';
 
 export const CurrencyOverlay = () => {
   const [isActive, setIsActive] = useState(true);

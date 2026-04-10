@@ -6,7 +6,7 @@ import { marginTopSelect } from '@/shared/lib/utilities';
 import type { ISection } from '@/shared/types';
 
 import { NewsletterInput } from '@/widgets/newsletter/ui/newsletter-input';
-import styles from '@/widgets/newsletter/ui/newsletter.module.css';
+import styles from '@/widgets/newsletter/ui/newsletter.module.scss';
 
 export const Newsletter: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const mode = useScreenMode();

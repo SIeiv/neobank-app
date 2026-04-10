@@ -6,7 +6,7 @@ import { useScreenMode } from '@/shared/lib/hooks';
 import { marginTopSelect } from '@/shared/lib/utilities';
 import type { ISection } from '@/shared/types';
 
-import styles from '@/widgets/map/ui/map.module.css';
+import styles from '@/widgets/map/ui/map.module.scss';
 
 export const Map: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const mode = useScreenMode();

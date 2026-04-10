@@ -2,7 +2,7 @@ import { Link, Paragraph } from 'neobank-ui-kit';
 
 import { footerConfig } from '@/widgets/footer/config';
 
-import styles from '@/widgets/footer/ui/footer.module.css';
+import styles from '@/widgets/footer/ui/footer.module.scss';
 
 export const Footer = () => {
   return (

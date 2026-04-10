@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Paragraph } from 'neobank-ui-kit';
 
-import styles from '@/widgets/currency/ui/currency.module.css';
+import styles from '@/widgets/currency/ui/currency.module.scss';
 
 interface ICurrencyItem {
   currency: string;

@@ -9,7 +9,7 @@ import { headerConfig } from '@/widgets/header/config';
 
 import { HeaderButton } from '@/widgets/header/ui/header-button';
 import { HeaderNavbar } from '@/widgets/header/ui/header-navbar';
-import styles from '@/widgets/header/ui/header.module.css';
+import styles from '@/widgets/header/ui/header.module.scss';
 
 export const Header = () => {
   const mode = useScreenMode();

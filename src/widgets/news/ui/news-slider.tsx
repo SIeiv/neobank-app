@@ -4,7 +4,7 @@ import { ArrowIcon, Button } from 'neobank-ui-kit';
 import type { INews } from '@/shared/types';
 
 import { NewsSliderItem } from '@/widgets/news/ui/news-slider-item';
-import styles from '@/widgets/news/ui/news.module.css';
+import styles from '@/widgets/news/ui/news.module.scss';
 
 interface INewsSlider {
   news: INews[];

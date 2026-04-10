@@ -1,0 +1,16 @@
+@use 'vars' as *;
+
+body {
+  margin: 0 0;
+  background-color: $global-bg-color;
+}
+
+main {
+  margin: 0 auto;
+  max-width: $desktop;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $desktop) {
+    padding-inline: 8px;
+  }
+}

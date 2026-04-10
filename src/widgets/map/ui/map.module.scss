@@ -1,0 +1,13 @@
+@use '@/app/styles/vars' as *;
+
+.container {
+  text-align: center;
+}
+
+.image {
+  margin-top: 48px;
+
+  @media screen and (max-width: $desktop) {
+    max-width: 100%;
+  }
+}

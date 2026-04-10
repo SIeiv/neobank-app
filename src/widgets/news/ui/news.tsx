@@ -7,7 +7,7 @@ import { newsMock } from '@/shared/mocks';
 import type { ISection } from '@/shared/types';
 
 import { NewsSlider } from '@/widgets/news/ui/news-slider';
-import styles from '@/widgets/news/ui/news.module.css';
+import styles from '@/widgets/news/ui/news.module.scss';
 
 export const News: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const mode = useScreenMode();

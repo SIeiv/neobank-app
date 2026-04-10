@@ -8,7 +8,7 @@ import type { ISection } from '@/shared/types';
 
 import { CurrencyItem } from '@/widgets/currency/ui/currency-item';
 import { CurrencyOverlay } from '@/widgets/currency/ui/currency-overlay';
-import styles from '@/widgets/currency/ui/currency.module.css';
+import styles from '@/widgets/currency/ui/currency.module.scss';
 
 export const Currency: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const mode = useScreenMode();

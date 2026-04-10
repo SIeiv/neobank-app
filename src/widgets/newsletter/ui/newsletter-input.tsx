@@ -3,7 +3,7 @@ import { Button, EmailIcon, Paragraph, SendIcon } from 'neobank-ui-kit';
 
 import { useScreenMode } from '@/shared/lib/hooks';
 
-import styles from '@/widgets/newsletter/ui/newsletter.module.css';
+import styles from '@/widgets/newsletter/ui/newsletter.module.scss';
 
 interface INewsletterInput {
   placeholder?: string;
