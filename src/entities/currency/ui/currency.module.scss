@@ -1,0 +1,15 @@
+@use '@/app/styles/vars' as *;
+
+.currencyItem {
+  display: flex;
+  gap: 20px;
+}
+
+.currencies {
+  display: grid;
+  grid-template-columns: 170px 170px 170px;
+
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 170px 170px;
+  }
+}

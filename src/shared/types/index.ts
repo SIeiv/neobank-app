@@ -1,5 +1,7 @@
 export type ScreenMode = 'desktop' | 'tablet' | 'mobile';
 
+export type Status = 'idle' | 'loading' | 'ok' | 'error';
+
 export interface ISection {
   marginTop?: [number, number, number];
 }

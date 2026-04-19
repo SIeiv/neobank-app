@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { type FC } from 'react';
 import { Paragraph } from 'neobank-ui-kit';
 
 import styles from '@/widgets/currency/ui/currency.module.scss';
 
-export const CurrencyOverlay = () => {
-  const [isActive, setIsActive] = useState(true);
+interface IOverlay {
+  state: boolean;
+  handler: (v: boolean) => void;
+}
 
+export const CurrencyOverlay: FC<IOverlay> = ({ state, handler }) => {
   const handleOnClick = () => {
-    setIsActive(false);
+    handler(true);
   };
 
-  if (!isActive) {
+  if (state) {
     return <></>;
   }
 
