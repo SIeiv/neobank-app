@@ -1,0 +1,29 @@
+@use '@/app/styles/vars' as *;
+
+.text {
+  text-align: center;
+}
+
+.slider {
+  &Container {
+    margin-top: 42px;
+  }
+
+  &MainArea {
+    display: flex;
+    gap: 80px;
+    overflow-x: hidden;
+    padding-block: 4px;
+  }
+
+  &Controls {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    margin-top: 48px;
+
+    @media screen and (max-width: $tablet) {
+      justify-content: center;
+    }
+  }
+}

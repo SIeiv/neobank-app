@@ -1,0 +1,53 @@
+@use '@/app/styles/vars' as *;
+
+.footer {
+  background-color: $footer-bg-color;
+  margin-top: 98px;
+}
+
+.container {
+  padding-block: 92px;
+  max-width: $desktop;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $desktop) {
+    padding-inline: 8px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    padding-block: 48px;
+  }
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  &Right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.links {
+  margin-top: 32px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 12px 32px;
+  flex-wrap: wrap;
+}
+
+.separator {
+  border: 1px solid #ffffffcf;
+  margin-top: 28px;
+  margin-bottom: 32px;
+}

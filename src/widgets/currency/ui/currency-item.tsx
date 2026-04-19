@@ -1,0 +1,22 @@
+import type { FC } from 'react';
+import { Paragraph } from 'neobank-ui-kit';
+
+import styles from '@/widgets/currency/ui/currency.module.scss';
+
+interface ICurrencyItem {
+  currency: string;
+  value: number;
+}
+
+export const CurrencyItem: FC<ICurrencyItem> = ({ currency, value }) => {
+  return (
+    <div className={styles.currencyItem}>
+      <Paragraph style={{ color: '#808080' }} size="large" weight="bold">
+        {currency}:
+      </Paragraph>
+      <Paragraph size="large" weight="bold">
+        {value}
+      </Paragraph>
+    </div>
+  );
+};

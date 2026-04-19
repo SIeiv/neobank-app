@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# neobank-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проектное задание Neoflex
 
-Currently, two official plugins are available:
+## Обзор
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Главная страница
 
-## React Compiler
+![Main Screen](./public/screenshots/main.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Мобильная версия
 
-## Expanding the ESLint configuration
+<img src="./public/screenshots/mobile.png" width="300" alt="Mobile View">
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Демо
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Попробуйте приложение: [Github Pages](https://sieiv.github.io/neobank-app/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Технологии
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### База
+
+- `React 19` - Основная библиотека
+- `TypeScript` - Типизация
+- `Vite` - Сборщик
+- `React Router` - Маршрутизация
+- `SASS` - CSS препроцессор
+- [`neobank-ui-kit`](https://github.com/SIeiv/neobank-ui-kit) - Самописная ui библиотека
+
+### Инструменты разработки
+
+- `ESLint` - Линтер
+- `Prettier` - Форматирование кода
+- `Lint Staged` - автопроверка и автоформатирование кода при коммитах
+- `gh-pages` - деплой на Github pages
+
+## Установка и запуск
+
+### Клонирование репозитория
+
+```bash
+git clone https://github.com/SIeiv/neobank-app
+cd neobank-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Установка зависимостей
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# npm
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# yarn
+yarn install
+
+# pnpm
+pnpm install
+```
+
+> ⚠️ **Внимание:** Если на Windows при установке зависимостей или во время разработки возникают ошибки - удалить скрипт postinstall в package.json
+
+### Запуск в режиме разработки
+
+```bash
+npm run dev
 ```
