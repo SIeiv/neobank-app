@@ -10,15 +10,15 @@ export const CurrencyOverlay = () => {
     setIsActive(false);
   };
 
+  if (!isActive) {
+    return <></>;
+  }
+
   return (
-    <>
-      {isActive && (
-        <button onClick={handleOnClick} className={styles.currencyOverlay}>
-          <Paragraph style={{ margin: 32, color: 'white' }} size="large" weight="bold">
-            All courses
-          </Paragraph>
-        </button>
-      )}
-    </>
+    <button onClick={handleOnClick} className={styles.currencyOverlay}>
+      <Paragraph style={{ margin: 32, color: 'white' }} size="large" weight="bold">
+        All courses
+      </Paragraph>
+    </button>
   );
 };

@@ -11,11 +11,12 @@ import styles from '@/widgets/card-showcase/ui/card-showcase.module.scss';
 export const CardShowcase: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const mode = useScreenMode();
   const selectedmt = marginTopSelect(mode, marginTop);
+  const headingLevel = mode === 'mobile' ? 2 : 1;
 
   return (
     <section style={{ marginTop: selectedmt }} className={styles.container}>
       <div className={styles.left}>
-        <Heading style={{ maxWidth: 609, margin: 0, marginBottom: 36 }} level={mode === 'mobile' ? 2 : 1}>
+        <Heading style={{ maxWidth: 609, margin: 0, marginBottom: 36 }} level={headingLevel}>
           Choose the design you like and apply for card right now
         </Heading>
         <Button>Choose the card</Button>
