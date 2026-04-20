@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { currencyReducer } from '@/entities/currency';
+import { newsReducer } from '@/entities/news';
 
 export const store = configureStore({
   reducer: {
     currency: currencyReducer,
+    news: newsReducer,
   },
 });
 

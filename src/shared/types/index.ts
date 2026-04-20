@@ -11,8 +11,8 @@ export interface LinkType {
   to: string;
 }
 
-export interface INews {
-  img: string;
-  title: string;
-  text: string;
+export interface DefaultInitialState<T = object> {
+  lastUpdatedTime: string | null;
+  data: T;
+  status: Status;
 }

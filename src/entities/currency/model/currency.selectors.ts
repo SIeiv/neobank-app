@@ -4,7 +4,7 @@ import type { RootState } from '@/app/store';
 
 export const selectCurrencyConversionsByCode = createSelector(
   [
-    (state: RootState) => state.currency.currencies,
+    (state: RootState) => state.currency.data,
     (_state: RootState, baseCurrencyCode: string) => baseCurrencyCode,
     (_state: RootState, _baseCurrencyCode: string, allowedKeys: string[]) => allowedKeys.slice().sort().join(','),
   ],

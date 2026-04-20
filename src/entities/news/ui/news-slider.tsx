@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState, type FC } from 'react';
-import { ArrowIcon, Button } from 'neobank-ui-kit';
+import { ArrowIcon, Button, LoadingIcon } from 'neobank-ui-kit';
 
-import type { INews } from '@/shared/types';
+import { NewsView, type News } from '@/entities/news';
+import { newsConfig } from '@/entities/news/config';
+import type { Status } from '@/shared/types';
 
-import { NewsSliderItem } from '@/widgets/news/ui/news-slider-item';
-import styles from '@/widgets/news/ui/news.module.scss';
+import styles from '@/entities/news/ui/news.module.scss';
 
 interface INewsSlider {
-  news: INews[];
+  news: News[];
+  status: Status;
 }
 
-export const NewsSlider: FC<INewsSlider> = ({ news }) => {
+export const NewsSlider: FC<INewsSlider> = ({ news, status }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [leftButtonState, setLeftButtonState] = useState(true);
   const [rightButtonState, setRightButtonState] = useState(false);
@@ -37,22 +39,26 @@ export const NewsSlider: FC<INewsSlider> = ({ news }) => {
     if (currentPosition + ref.current.clientWidth >= ref.current.scrollWidth - 1) {
       setRightButtonState(true);
     }
-  }, [currentPosition]);
+  }, [currentPosition, news]);
 
   const updateScroll = (to: 'left' | 'right') => {
     if (!ref.current) {
       return;
     }
-    const step = ref.current.clientWidth / 2;
+    const step = newsConfig.style.newsViewWidth + newsConfig.style.sliderGap + newsConfig.sliderScrollIncrementalOffset;
     setCurrentPosition((prev) => (to === 'left' ? prev - step : prev + step));
   };
 
   return (
     <div className={styles.sliderContainer}>
-      <div ref={ref} className={styles.sliderMainArea}>
-        {news.map((newsItem, index) => (
-          <NewsSliderItem {...newsItem} key={`${newsItem.title}_${newsItem.text}_${index}`} />
-        ))}
+      <div ref={ref} className={styles.sliderMainArea} style={{ gap: newsConfig.style.sliderGap }}>
+        {status === 'ok' ? (
+          news.map((newsItem) => <NewsView {...newsItem} key={`${newsItem.title}_${newsItem.content}`} />)
+        ) : (
+          <div style={{ margin: 'auto' }}>
+            <LoadingIcon size={128} />
+          </div>
+        )}
       </div>
       <div className={styles.sliderControls}>
         <Button

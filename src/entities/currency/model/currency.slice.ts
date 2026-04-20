@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { getCurrencyConversion } from '@/entities/currency/api';
+import type { DefaultInitialState } from '@/shared/types';
 
-import type { CurrencyInitialState } from '@/entities/currency/model/types';
+import type { Currency } from '@/entities/currency/model/types';
 
-const initialState: CurrencyInitialState = {
+const initialState: DefaultInitialState<Currency> = {
   lastUpdatedTime: null,
-  currencies: {},
+  data: {},
   status: 'idle',
 };
 
@@ -24,7 +25,7 @@ const currencySlice = createSlice({
 
         const result = { ...action.payload.conversion_rates };
         delete result[action.payload.base_code];
-        state.currencies[action.payload.base_code] = result;
+        state.data[action.payload.base_code] = result;
 
         state.lastUpdatedTime = new Date().toLocaleString();
       })

@@ -32,16 +32,14 @@ export const Currency: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   useEffect(() => {
     let currencyUpdateInterval: number;
 
-    const func = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    (async () => {
       await dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
 
       currencyUpdateInterval = setInterval(async () => {
         await dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
       }, currencyWidgetConfig.currencyUpdateInterval);
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    func();
+    })();
 
     return () => {
       clearInterval(currencyUpdateInterval);
