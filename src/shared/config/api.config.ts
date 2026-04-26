@@ -1,6 +1,6 @@
 const CURRENCY = {
   SECRET: 'fa5d7bf69a0631fe82e34261',
-  BASE_URL: 'https://v6.exchangerate-api.com/v6',
+  BASE_URL: import.meta.env.VITE_CURRENCY_API_BASE_URL as string,
 };
 
 export const apiConfig = {
@@ -12,7 +12,7 @@ export const apiConfig = {
     },
   },
   news: {
-    baseUrl: 'https://newsapi.org/v2',
+    baseUrl: import.meta.env.VITE_NEWS_API_BASE_URL as string,
     apiKey: '770939e1b9734195b38fe81ee5ed7a9f',
     endpoints: {
       topHeadlines: '/top-headlines',

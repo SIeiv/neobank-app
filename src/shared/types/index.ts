@@ -1,6 +1,13 @@
 export type ScreenMode = 'desktop' | 'tablet' | 'mobile';
 
-export type Status = 'idle' | 'loading' | 'ok' | 'error';
+export const Status = {
+  Idle: 'idle',
+  Loading: 'loading',
+  Ok: 'ok',
+  Error: 'error',
+} as const;
+
+export type Status = (typeof Status)[keyof typeof Status];
 
 export interface ISection {
   marginTop?: [number, number, number];

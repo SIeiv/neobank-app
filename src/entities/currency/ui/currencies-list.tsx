@@ -10,9 +10,11 @@ interface ICurrencyList {
 }
 
 export const CurrenciesList: FC<ICurrencyList> = ({ currencies }) => {
+  const currenciesEntries = Object.entries(currencies);
+
   return (
     <div className={styles.currencies}>
-      {Object.entries(currencies).map(([key, value]) => (
+      {currenciesEntries.map(([key, value]) => (
         <CurrencyView key={`${key}_${value}`} currency={key} value={value} />
       ))}
     </div>

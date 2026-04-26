@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { getCurrencyConversion } from '@/entities/currency/api';
-import type { DefaultInitialState } from '@/shared/types';
+import { Status, type DefaultInitialState } from '@/shared/types';
 
 import type { Currency } from '@/entities/currency/model/types';
 
 const initialState: DefaultInitialState<Currency> = {
   lastUpdatedTime: null,
   data: {},
-  status: 'idle',
+  status: Status.Idle,
 };
 
 const currencySlice = createSlice({
@@ -18,10 +18,10 @@ const currencySlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getCurrencyConversion.pending, (state) => {
-        state.status = 'loading';
+        state.status = Status.Loading;
       })
       .addCase(getCurrencyConversion.fulfilled, (state, action) => {
-        state.status = 'ok';
+        state.status = Status.Ok;
 
         const result = { ...action.payload.conversion_rates };
         delete result[action.payload.base_code];
@@ -30,7 +30,7 @@ const currencySlice = createSlice({
         state.lastUpdatedTime = new Date().toLocaleString();
       })
       .addCase(getCurrencyConversion.rejected, (state) => {
-        state.status = 'error';
+        state.status = Status.Error;
       });
   },
 });
