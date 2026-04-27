@@ -14,8 +14,7 @@
     "format-files": "prettier --write --ignore-unknown",
     "check": "npm run ts-check && npm run lint && npm run format",
     "lint-staged": "lint-staged",
-    "deploy": "npm run build && gh-pages -d dist",
-    "postinstall": "echo 'npx lint-staged' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "2.11.2",
