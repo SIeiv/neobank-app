@@ -1,6 +1,8 @@
+/* eslint-disable @hh.ru/rules/no-internal-modules */
+
 import { Route, Routes } from 'react-router-dom';
 
-// eslint-disable-next-line @hh.ru/rules/no-internal-modules
+import { LoanPage } from '@/pages/loan-page';
 import { MainPage } from '@/pages/main-page';
 
 export const MainRouter = () => {
@@ -8,6 +10,7 @@ export const MainRouter = () => {
     <Routes>
       {/* для gh-pages */}
       <Route path="/neobank-app/" element={<MainPage />} />
+      <Route path="/neobank-app/loan/" element={<LoanPage />} />
     </Routes>
   );
 };
