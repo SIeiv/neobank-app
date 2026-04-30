@@ -1,14 +1,17 @@
-import type { FC } from 'react';
+import type { FC, PointerEvent } from 'react';
 import { Paragraph } from 'neobank-ui-kit';
 
 interface IFeatureItem {
   mainText: string;
   secondaryText: string;
+
+  onPointerEnter?: (e: PointerEvent<HTMLDivElement>) => void;
+  onPointerLeave?: (e: PointerEvent<HTMLDivElement>) => void;
 }
 
-export const FeatureItem: FC<IFeatureItem> = ({ mainText, secondaryText }) => {
+export const FeatureItem: FC<IFeatureItem> = ({ mainText, secondaryText, onPointerEnter, onPointerLeave }) => {
   return (
-    <div>
+    <div onPointerEnter={onPointerEnter} onPointerLeave={onPointerLeave}>
       <Paragraph style={{ margin: 0, marginBottom: 10 }} size="large" weight="bold">
         {mainText}
       </Paragraph>

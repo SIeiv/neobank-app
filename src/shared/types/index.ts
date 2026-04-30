@@ -23,3 +23,8 @@ export interface DefaultInitialState<T = object> {
   data: T;
   status: Status;
 }
+
+export interface Link {
+  text: string;
+  to: string;
+}
