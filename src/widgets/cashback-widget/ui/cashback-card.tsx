@@ -14,7 +14,7 @@ export const CashbackCard: FC<ICashbackCard> = ({ text, title, style, ...props }
       <Paragraph style={{ marginBottom: 22 }} size="small" weight="semibold">
         {text}
       </Paragraph>
-      <Heading level={3} style={{ fontWeight: 700, fontSize: 36 }}>
+      <Heading level={3} style={{ fontWeight: 700, fontSize: 36, margin: 0 }}>
         {title}
       </Heading>
     </Card>

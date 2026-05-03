@@ -22,6 +22,7 @@ export const apiConfig = {
     baseUrl: import.meta.env.VITE_MAIN_API_BASE_URL as string,
     endpoints: {
       email: '/email',
+      application: '/application',
     },
   },
 };

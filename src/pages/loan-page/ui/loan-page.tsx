@@ -1,3 +1,6 @@
+import { useRef } from 'react';
+
+import { PrescoringForm } from '@/features/prescoring';
 import { LoanRouter } from '@/pages/loan-page/routers';
 import { Tabs } from '@/shared/ui/tabs';
 import { CreditCardPromo } from '@/widgets/credit-card-promo';
@@ -11,14 +14,17 @@ const tabs = [
 ];
 
 export const LoanPage = () => {
+  const targetRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
-      <CreditCardPromo marginTop={[20, 20, 20]} />
+      <CreditCardPromo marginTop={[20, 20, 20]} applyCardScrollToRef={targetRef} />
       <div style={{ marginTop: 36, marginBottom: 40 }}>
         <Tabs links={tabs} />
       </div>
       <LoanRouter />
       <Steps marginTop={[96, 96, 96]} />
+      <PrescoringForm marginTop={[44, 44, 44]} applyCardScrollToRef={targetRef} />
     </>
   );
 };

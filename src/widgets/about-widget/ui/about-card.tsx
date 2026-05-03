@@ -13,7 +13,7 @@ export const AboutCard: FC<IAboutCard> = ({ icon, text, title, style, ...props }
   return (
     <Card {...props} style={{ height: 236, ...style }}>
       <img src={icon} alt="card icon" className={styles.cardImage} />
-      <Heading level={3} style={{ fontWeight: 700 }}>
+      <Heading level={3} style={{ fontWeight: 700, margin: 0 }}>
         {title}
       </Heading>
       <Paragraph weight="semibold">{text}</Paragraph>
