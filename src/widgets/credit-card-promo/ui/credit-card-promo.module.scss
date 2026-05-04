@@ -1,0 +1,66 @@
+@use '@/app/styles/vars' as *;
+
+.container {
+  width: 100%;
+}
+
+.card {
+  background: linear-gradient(180.8deg, rgba(203, 213, 224, 0.624) 34.33%, rgba(254, 235, 200, 0.56) 64.27%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  @media screen and (max-width: $tablet) {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: $mobile) {
+    text-align: center;
+  }
+}
+
+.preview {
+  width: 380px;
+  height: 226px;
+  margin-right: 85px;
+
+  @media screen and (max-width: $desktop) {
+    margin-right: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 12px;
+  align-items: start;
+
+  @media screen and (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.featuresList {
+  display: flex;
+  justify-content: space-between;
+  max-width: 550px;
+  width: 100%;
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.container {
+  @media screen and (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,55 @@
+@use '@/app/styles/vars' as *;
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upper {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.number {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decorativeLine {
+  width: 250px;
+  height: 2px;
+  background-color: #d9d9d9;
+}
+
+.text {
+  max-width: 303px;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $tablet) {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.heading {
+  margin-bottom: 14px;
+  text-align: center;
+}

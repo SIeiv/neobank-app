@@ -1,0 +1,16 @@
+.link {
+  font-weight: 700;
+  line-height: 112%;
+  letter-spacing: 2%;
+  color: #1d1929;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.link:hover {
+  color: #b2a35f;
+}
+
+.active {
+  color: #b2a35f;
+}

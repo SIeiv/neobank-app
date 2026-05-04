@@ -41,7 +41,7 @@ export const Header = () => {
     <>
       <header className={styles.header}>
         <div className={styles.container}>
-          <NavLink to={'/'}>
+          <NavLink to={'/neobank-app/'}>
             <img src={neobankLogo} alt="neobank logo" />
           </NavLink>
           {mode === 'desktop' && <HeaderNavbar mode="desktop" />}

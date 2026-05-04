@@ -14,13 +14,12 @@
     "format-files": "prettier --write --ignore-unknown",
     "check": "npm run ts-check && npm run lint && npm run format",
     "lint-staged": "lint-staged",
-    "deploy": "npm run build && gh-pages -d dist",
-    "postinstall": "echo 'npx lint-staged' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "2.11.2",
     "axios": "1.15.0",
-    "neobank-ui-kit": "2.0.0",
+    "neobank-ui-kit": "3.3.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-redux": "9.2.0",

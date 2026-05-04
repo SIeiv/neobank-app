@@ -18,16 +18,11 @@ export const News: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const newsStatus = useAppSelector((state) => state.news.status);
 
   useEffect(() => {
-    let newsUpdateInterval: number;
+    void dispatch(getNewsTopHeadlines({ country: 'us', category: 'business', pageSize: 30 }));
 
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    (async () => {
-      await dispatch(getNewsTopHeadlines({ country: 'us', category: 'business', pageSize: 30 }));
-
-      newsUpdateInterval = setInterval(async () => {
-        await dispatch(getNewsTopHeadlines({ country: 'us', category: 'business', pageSize: 30 }));
-      }, newsWidgetConfig.updateInterval);
-    })();
+    const newsUpdateInterval = setInterval(() => {
+      void dispatch(getNewsTopHeadlines({ country: 'us', category: 'business', pageSize: 30 }));
+    }, newsWidgetConfig.updateInterval);
 
     return () => {
       clearInterval(newsUpdateInterval);

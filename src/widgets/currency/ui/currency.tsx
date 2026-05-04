@@ -30,16 +30,11 @@ export const Currency: FC<ISection> = ({ marginTop = [0, 0, 0] }) => {
   const timeLabel = loadingStatus === 'ok' ? lastUpdatedTime : 'loading...';
 
   useEffect(() => {
-    let currencyUpdateInterval: number;
+    void dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
 
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    (async () => {
-      await dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
-
-      currencyUpdateInterval = setInterval(async () => {
-        await dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
-      }, currencyWidgetConfig.currencyUpdateInterval);
-    })();
+    const currencyUpdateInterval = setInterval(() => {
+      void dispatch(getCurrencyConversion({ currencyCode: 'RUB' }));
+    }, currencyWidgetConfig.currencyUpdateInterval);
 
     return () => {
       clearInterval(currencyUpdateInterval);

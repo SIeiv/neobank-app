@@ -1,0 +1,72 @@
+@use '@/app/styles/vars' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.rangeContainer {
+  border: solid 1px #5b35d5;
+  border-radius: 10px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    width: calc(50% - 40px);
+  }
+
+  @media screen and (max-width: $tablet) {
+    flex-direction: column;
+    gap: 32px;
+
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+.lower {
+  margin-top: 32px;
+}
+
+.gridContainer {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.titleContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.buttonContainer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: end;
+}
+
+.amountInput {
+  font-size: 16px;
+  font-weight: 500;
+
+  border: none;
+  border-bottom: solid 1px #80808033;
+  padding-block: 10px;
+}

@@ -1,0 +1,15 @@
+@use '@/app/styles/vars' as *;
+
+.container {
+  width: 1123px;
+
+  @media screen and (max-width: $desktop) {
+    width: 100%;
+  }
+}
+
+.container > div > div > div {
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
+}

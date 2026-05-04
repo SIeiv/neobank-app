@@ -1,13 +1,19 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { LoadingIcon } from 'neobank-ui-kit';
 
-// eslint-disable-next-line @hh.ru/rules/no-internal-modules
-import { MainPage } from '@/pages/main-page';
+const MainPage = lazy(() => import('@/pages/main-page').then((module) => ({ default: module.MainPage })));
+
+const LoanPage = lazy(() => import('@/pages/loan-page').then((module) => ({ default: module.LoanPage })));
 
 export const MainRouter = () => {
   return (
-    <Routes>
-      {/* для gh-pages */}
-      <Route path="/neobank-app/" element={<MainPage />} />
-    </Routes>
+    <Suspense fallback={<LoadingIcon />}>
+      <Routes>
+        {/* для gh-pages */}
+        <Route path="/neobank-app/" element={<MainPage />} />
+        <Route path="/neobank-app/loan/*" element={<LoanPage />} />
+      </Routes>
+    </Suspense>
   );
 };
