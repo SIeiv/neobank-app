@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+}
+
+.table {
+  margin-top: 76px;
+  margin-bottom: 44px;
+  overflow-x: auto;
+
+  & th {
+    padding-right: 103px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.send {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.dialog1Footer {
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+}

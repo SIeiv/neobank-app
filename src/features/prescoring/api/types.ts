@@ -1,4 +1,6 @@
-export interface SubmitPrescoringRequest {
+import type { Credit } from '@/entities/credit/model/types';
+
+export interface SendPrescoringRequest {
   amount: number;
   term: number;
   firstName: string;
@@ -9,3 +11,5 @@ export interface SubmitPrescoringRequest {
   passportSeries: string;
   passportNumber: string;
 }
+
+export type SendPrescoringResponse = Credit[];

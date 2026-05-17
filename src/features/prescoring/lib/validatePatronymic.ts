@@ -1,4 +1,4 @@
-import type { ValidationResult } from '@/features/prescoring/lib/types';
+import type { ValidationResult } from '@/shared/types';
 
 export const validatePatronymic = (value: string | null | undefined): ValidationResult => {
   // 1. Проверка на пустое значение (если пусто - валидно)

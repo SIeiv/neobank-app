@@ -1,12 +1,13 @@
 import { type FC, type RefObject, type SubmitEventHandler } from 'react';
-import { Button, Card, Heading, Input, LoadingIcon, Paragraph, Range, Select } from 'neobank-ui-kit';
+import { Button, Card, Heading, Input, LoadingIcon, Paragraph, Range } from 'neobank-ui-kit';
 
-import { submitPrescoring } from '@/features/prescoring/api';
 import { PRESCORING_CONFIG } from '@/features/prescoring/config';
 import { setAmount, setField } from '@/features/prescoring/model/slice';
-import { Term, type Field } from '@/features/prescoring/model/types';
+import { submitPrescoring } from '@/features/prescoring/model/thunk';
 import { useAppDispatch, useAppSelector, useMarginTopSelect } from '@/shared/lib/hooks';
-import type { ISection } from '@/shared/types';
+import { calcInputState } from '@/shared/lib/utilities/calcInputState';
+import { Term, type ISection } from '@/shared/types';
+import { SelectWithTitle } from '@/shared/ui/select-with-title';
 
 import { AmountInput } from '@/features/prescoring/ui/amount-input';
 import styles from '@/features/prescoring/ui/customize-card-form.module.scss';
@@ -21,15 +22,6 @@ export const PrescoringForm: FC<IPrescoringForm> = ({ marginTop = [0, 0, 0], app
   const dispatch = useAppDispatch();
   const { amount, firstname, lastname, dateOfBirth, email, passportNumber, passportSeries, patronymic, status, term } =
     useAppSelector((state) => state.prescoring);
-
-  const calcInputState = (field: Field) => {
-    if (field.error === null) {
-      return 'default';
-    } else if (field.error === '') {
-      return 'success';
-    }
-    return 'error';
-  };
 
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -132,23 +124,16 @@ export const PrescoringForm: FC<IPrescoringForm> = ({ marginTop = [0, 0, 0], app
                 state={calcInputState(patronymic)}
                 errorMsg={patronymic.error ?? ''}
               />
-              <div>
-                <div className={styles.titleContainer}>
-                  <Paragraph style={{ marginBlock: 8 }} weight="semibold">
-                    Select term
-                  </Paragraph>
-                  <Paragraph style={{ color: '#FF5631', marginBlock: 8 }} weight="semibold">
-                    *
-                  </Paragraph>
-                </div>
-                <Select
-                  value={term.value}
-                  onChange={(e) => {
-                    dispatch(setField({ fieldName: 'term', value: e.target.value }));
-                  }}
-                  options={Object.entries(Term).map(([key, value]) => ({ text: key, value }))}
-                />
-              </div>
+              <SelectWithTitle
+                title="Select term"
+                value={term.value}
+                onChange={(e) => {
+                  dispatch(setField({ fieldName: 'term', value: e.target.value }));
+                }}
+                options={Object.entries(Term).map(([key, value]) => ({ text: key, value }))}
+                required
+              />
+
               <Input
                 value={email.value}
                 onChange={(e) => {
