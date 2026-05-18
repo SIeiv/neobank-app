@@ -1,0 +1,21 @@
+.image {
+  margin-bottom: 32px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.creditList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.creditCondition {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}

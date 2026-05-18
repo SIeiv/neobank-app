@@ -1,4 +1,4 @@
-import type { ValidationResult } from '@/features/prescoring/lib/types';
+import type { ValidationResult } from '@/shared/types';
 
 export function validateEmail(email: string): ValidationResult {
   if (!email || email.trim() === '') {

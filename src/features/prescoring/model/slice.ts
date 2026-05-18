@@ -1,8 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { submitPrescoring } from '@/features/prescoring/api';
 import { PRESCORING_CONFIG } from '@/features/prescoring/config';
-import { applyValidation } from '@/features/prescoring/lib/applyValidation';
 import { validateDateOfBirth } from '@/features/prescoring/lib/validateDateOfBirth';
 import { validateEmail } from '@/features/prescoring/lib/validateEmail';
 import { validateFirstname } from '@/features/prescoring/lib/validateFirstname';
@@ -10,14 +8,18 @@ import { validateLastname } from '@/features/prescoring/lib/validateLastname';
 import { validatePassportNumber } from '@/features/prescoring/lib/validatePassportNumber';
 import { validatePassportSeries } from '@/features/prescoring/lib/validatePassportSeries';
 import { validatePatronymic } from '@/features/prescoring/lib/validatePatronymic';
-import { Status } from '@/shared/types';
+import { applyValidation } from '@/shared/lib/utilities/applyValidation';
+import { ApplicationStage, Status, type FieldPayload } from '@/shared/types';
 
-import type { FieldPayload, InitialState } from '@/features/prescoring/model/types';
+import { submitPrescoring } from '@/features/prescoring/model/thunk';
+import type { FieldInState, InitialState } from '@/features/prescoring/model/types';
 
 const initialState: InitialState = {
   status: Status.Idle,
 
   amount: PRESCORING_CONFIG.AMOUNT.DEFAULT,
+
+  isSended: localStorage.getItem('applicationStage') === ApplicationStage.Credit,
 
   firstname: {
     value: '',
@@ -61,8 +63,8 @@ const prescoringSlice = createSlice({
         state.amount = action.payload;
       }
     },
-    setField(state, action: PayloadAction<FieldPayload>) {
-      state[action.payload.fieldName].value = action.payload.value;
+    setField(state, action: PayloadAction<FieldPayload<FieldInState>>) {
+      state[action.payload.fieldName].value = action.payload.value.toString();
     },
     validateFields(state) {
       applyValidation(state, 'lastname', validateLastname);
@@ -80,6 +82,9 @@ const prescoringSlice = createSlice({
       applyValidation(state, 'passportNumber', validatePassportNumber);
     },
     resetState: () => initialState,
+    setSendedState(state, action: PayloadAction<boolean>) {
+      state.isSended = action.payload;
+    },
   },
 
   extraReducers(builder) {
@@ -96,5 +101,5 @@ const prescoringSlice = createSlice({
   },
 });
 
-export const { setAmount, setField, validateFields, resetState } = prescoringSlice.actions;
+export const { setAmount, setField, validateFields, resetState, setSendedState } = prescoringSlice.actions;
 export const prescoringReducer = prescoringSlice.reducer;

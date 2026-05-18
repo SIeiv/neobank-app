@@ -1,4 +1,4 @@
-import type { ValidationResult } from '@/features/prescoring/lib/types';
+import type { ValidationResult } from '@/shared/types';
 
 export function validatePassportNumber(number: string): ValidationResult {
   if (!number || number.trim() === '') {

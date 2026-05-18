@@ -23,6 +23,11 @@ export const apiConfig = {
     endpoints: {
       email: '/email',
       application: '/application',
+      credit: '/application/apply',
+      scoring: '/application/registration',
+      document: '/document',
+      signDocument: (id: string) => `/document/${id}/sign`,
+      codeDocument: (id: string) => `/document/${id}/sign/code`,
     },
   },
 };

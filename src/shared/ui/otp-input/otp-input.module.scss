@@ -1,0 +1,25 @@
+.cell {
+  width: 48px;
+  height: 48px;
+  border: solid 0.5px #808080;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filled {
+  border-color: #3182ce;
+}
+
+.noChar {
+  width: 20px;
+  height: 20px;
+  border: solid 1.5px #808080;
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+}

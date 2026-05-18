@@ -1,0 +1,24 @@
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.mainInfo {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.employmentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.buttonContainer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: end;
+}

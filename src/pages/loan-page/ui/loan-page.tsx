@@ -2,8 +2,12 @@ import { useRef } from 'react';
 
 import { PrescoringForm } from '@/features/prescoring';
 import { LoanRouter } from '@/pages/loan-page/routers';
+import { useAppSelector } from '@/shared/lib/hooks';
+import { Status } from '@/shared/types';
 import { Tabs } from '@/shared/ui/tabs';
 import { CreditCardPromo } from '@/widgets/credit-card-promo';
+import { CreditWidget } from '@/widgets/credit-widget';
+import SendedWidget from '@/widgets/sended-widget/ui/sended-widget';
 import { Steps } from '@/widgets/steps';
 
 const tabs = [
@@ -16,6 +20,20 @@ const tabs = [
 export const LoanPage = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
+  const isPrescoringSended = useAppSelector((state) => state.prescoring.isSended);
+  const creditStatus = useAppSelector((state) => state.credit.status);
+
+  const applicationWidgetSelector = () => {
+    if (creditStatus === Status.Ok) {
+      return <SendedWidget marginTop={[44, 44, 44]} />;
+    }
+
+    if (isPrescoringSended) {
+      return <CreditWidget marginTop={[44, 44, 44]} />;
+    }
+    return <PrescoringForm marginTop={[44, 44, 44]} applyCardScrollToRef={targetRef} />;
+  };
+
   return (
     <>
       <CreditCardPromo marginTop={[20, 20, 20]} applyCardScrollToRef={targetRef} />
@@ -24,7 +42,7 @@ export const LoanPage = () => {
       </div>
       <LoanRouter />
       <Steps marginTop={[96, 96, 96]} />
-      <PrescoringForm marginTop={[44, 44, 44]} applyCardScrollToRef={targetRef} />
+      {applicationWidgetSelector()}
     </>
   );
 };

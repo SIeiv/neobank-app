@@ -1,37 +1,25 @@
-import type { Status } from '@/shared/types';
+import type { Status, Term } from '@/shared/types';
 
-export interface Field {
-  value: string;
+export interface Field<T> {
+  value: T;
   error: string | null;
 }
 
-export type FieldInState = keyof Omit<InitialState, 'amount' | 'status'>;
-
-export interface FieldPayload {
-  fieldName: FieldInState;
-  value: string;
-}
+export type FieldInState = Omit<InitialState, 'amount' | 'status' | 'isSended'>;
 
 export interface InitialState {
   status: Status;
 
   amount: number;
 
-  lastname: Field;
-  firstname: Field;
-  patronymic: Field;
+  lastname: Field<string>;
+  firstname: Field<string>;
+  patronymic: Field<string>;
   term: { value: Term };
-  email: Field;
-  dateOfBirth: Field;
-  passportSeries: Field;
-  passportNumber: Field;
+  email: Field<string>;
+  dateOfBirth: Field<string>;
+  passportSeries: Field<string>;
+  passportNumber: Field<string>;
+
+  isSended: boolean;
 }
-
-export const Term = {
-  '6 month': '6',
-  '12 month': '12',
-  '18 month': '18',
-  '24 month': '24',
-} as const;
-
-export type Term = (typeof Term)[keyof typeof Term];
