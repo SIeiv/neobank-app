@@ -49,7 +49,7 @@ export const PrescoringForm: FC<IPrescoringForm> = ({ marginTop = [0, 0, 0], app
   return (
     <div ref={applyCardScrollToRef}>
       <Card style={{ marginTop: selectedmt, backgroundColor: 'white', width: '100%' }}>
-        <form onSubmit={handleSubmit}>
+        <form aria-label="form" onSubmit={handleSubmit}>
           <div className={styles.upper}>
             <div>
               <div className={styles.header}>
