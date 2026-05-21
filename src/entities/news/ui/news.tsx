@@ -9,7 +9,7 @@ import styles from '@/entities/news/ui/news.module.scss';
 
 export const NewsView: FC<News> = ({ urlToImage, title, content, url }) => {
   return (
-    <a className={styles.link} target="_top" href={url} rel="noopener noreferer">
+    <a className={styles.link} target="_top" href={url} rel="noopener noreferrer">
       <Card
         style={{
           minWidth: newsConfig.style.newsViewWidth,
